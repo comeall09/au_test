@@ -1,8 +1,8 @@
-import { useIsPasswordValid } from './useIsPasswordValid';
-import { useIsEmailValid } from './useIsEmailValid';
+import { isPasswordValid } from './isPasswordValid';
+import { isEmailValid } from './isEmailValid';
 export const useIsValid = (value: string, valueType: string): boolean => {
   if(valueType === 'password'){
-    return useIsPasswordValid(value)
+    return isPasswordValid(value)
   }
-  return useIsEmailValid(value)
+  return isEmailValid(value)
 }
