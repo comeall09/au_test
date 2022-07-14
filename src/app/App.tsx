@@ -1,5 +1,6 @@
 import { useIsValid } from "../shared/model/useIsValid";
 import { MyForm } from "../shared/ui/MyForm";
+import { StatusBar } from "../widgets/ui/StatusBar/StatusBar";
 
 export const App = () => {
   
@@ -9,6 +10,7 @@ export const App = () => {
   
   return (
     <>
+      <StatusBar />
       <MyForm value="" inputType="password" props/>
     </>
   )
