@@ -1,4 +1,5 @@
 import { useIsValid } from "../shared/model/useIsValid";
+import { MyForm } from "../shared/ui/MyForm";
 
 export const App = () => {
   
@@ -8,6 +9,7 @@ export const App = () => {
   
   return (
     <>
+      <MyForm value="" inputType="password" props/>
     </>
   )
 }
