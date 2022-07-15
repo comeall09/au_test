@@ -1,0 +1,68 @@
+.statusHeader {
+	width: 100%;
+
+	h1 span {
+		color: #666;
+	}
+}
+
+.statusBar {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	gap: 10px;
+	position: relative;
+
+	.statusWrap {
+		width: 50%;
+		display: flex;
+		flex-direction: column;
+		margin: 0 auto;
+		position: relative;
+		
+		.status {
+			width: 100%;
+			margin: 0 auto;
+			padding: 10px;
+			background-color: #EAEAEA;
+			position: relative;
+
+			&::before {
+				display: block;
+				content: '';
+				position: absolute;
+				width: 11px;
+				height: 11px;
+				left: 5px;
+				top: -5px;
+
+				background: #EAEAEA;
+				transform: rotate(45deg);
+			}
+		}
+	
+		.btn {
+			position: absolute;
+			right: 0;
+			top: -30px;
+
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
+			color: #0C77BB;
+			&::after {
+				display: block;
+				content: '';
+	
+				width: 100%;
+				height: 1px;
+				margin: 0 auto;
+				border-bottom: 1px dotted #0C77BB;
+			}
+			&:hover, &:focus, &:visited {
+				color: #015081;
+			}
+	}
+
+	}
+}

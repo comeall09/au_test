@@ -1,17 +1,12 @@
-import { useIsValid } from "../shared/model/useIsValid";
-import { MyForm } from "../shared/ui/MyForm";
 import { StatusBar } from "../widgets/ui/StatusBar/StatusBar";
+import s from './app.module.scss'
 
-export const App = () => {
-  
-  const isEmailValid = useIsValid('21ewdwq12', 'email')
-  console.log(isEmailValid);
-  
-  
+export const App = () => {  
   return (
-    <>
-      <StatusBar />
-      <MyForm value="" inputType="password" props/>
-    </>
+    <div className={s.mainPage}>
+      <div className={s.mainPageWrapper}>
+        <StatusBar status='somestatus'/>
+      </div>
+    </div>
   )
 }
