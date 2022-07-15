@@ -5,7 +5,7 @@ export const App = () => {
   return (
     <div className={s.mainPage}>
       <div className={s.mainPageWrapper}>
-        <StatusBar status='somestatus'/>
+        <StatusBar />
       </div>
     </div>
   )

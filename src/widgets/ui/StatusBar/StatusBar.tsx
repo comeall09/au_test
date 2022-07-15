@@ -1,27 +1,36 @@
-import { useRef, useState } from 'react'
-import { StatusHeader } from '../StatusHeader/StatusHeader'
-import s from '../styles/statusBar.module.scss'
+import { useEffect, useRef, useState } from 'react'
+import s from './styles/statusBar.module.scss'
+import { StatusHeader } from './StatusHeader/StatusHeader'
 
-type StatusProps = {
-  status: string
-}
-
-export const StatusBar = ({status }: StatusProps) => {
-
-  const [isDisabled, setIsDisabled] = useState(true)
-  const inputEl = useRef<HTMLInputElement>(null)
-
-  const handleStatus = () => {
-    setIsDisabled(false)
-    inputEl.current?.focus()
+export const StatusBar = () => {
+  const [isActive, setIsActive] = useState(false)
+  
+  const toggleStatus = () => {
+    setIsActive(!isActive)
   }
+
+  const [status, setStatus] = useState('')
+  const statusHandler = (value: string) => {
+    setStatus(value)
+  }
+
+  const inputEl = useRef<HTMLInputElement>(null)
+  useEffect(() => {
+    inputEl.current?.focus()
+  }, [isActive])
 
   return (
     <div className={s.statusBar}>
       <StatusHeader />
       <div className={s.statusWrap}>
-        <button onClick={handleStatus} className={s.btn}>Сменить статус</button>
-        <input ref={inputEl} disabled={isDisabled} className={s.status} value={status} />
+        <button onClick={toggleStatus} className={s.btn}>Сменить статус</button>
+        <input
+          className={s.status}
+          value={status}
+          disabled={isActive}
+          ref={inputEl}
+          onChange={e => statusHandler(e.target.value)}
+        />
       </div>
     </div>
   )
