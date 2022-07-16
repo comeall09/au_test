@@ -16,6 +16,7 @@
 	.statusWrap {
 		width: 50%;
 		display: flex;
+		flex-wrap: wrap;
 		flex-direction: column;
 		margin: 0 auto;
 		position: relative;
@@ -26,6 +27,7 @@
 			padding: 10px;
 			background-color: #EAEAEA;
 			position: relative;
+			word-wrap: break-word;
 
 			&::before {
 				display: block;
@@ -64,5 +66,36 @@
 			}
 	}
 
+	}
+}
+
+.statusModalWrap {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.473);
+	padding: 15px;
+	
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	
+	.statusModal {
+		width: 50%;
+		background-color: #fff;
+		padding: 25px;
+		border-radius: 10px;
+	}
+
+	.statusInput {
+		width: 95%;
+		padding: 10px;
+		border: 2px solid #d1d1d1;
+		outline: none;
+	}
+	.saveStatusBtn {
+		position: sticky;
 	}
 }
