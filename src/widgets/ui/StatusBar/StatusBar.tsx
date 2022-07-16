@@ -3,10 +3,10 @@ import s from './styles/statusBar.module.scss'
 import { StatusHeader } from './StatusHeader/StatusHeader'
 
 export const StatusBar = () => {
-  const [isActive, setIsActive] = useState(false)
+  const [isActive, setIsActive] = useState(true)
   
-  const toggleStatus = () => {
-    setIsActive(!isActive)
+  const activateStatus = () => {    
+    setIsActive(false)
   }
 
   const [status, setStatus] = useState('')
@@ -23,7 +23,7 @@ export const StatusBar = () => {
     <div className={s.statusBar}>
       <StatusHeader />
       <div className={s.statusWrap}>
-        <button onClick={toggleStatus} className={s.btn}>Сменить статус</button>
+        <button onClick={activateStatus} className={s.btn}>Сменить статус</button>
         <input
           className={s.status}
           value={status}
