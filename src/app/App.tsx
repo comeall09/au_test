@@ -1,3 +1,4 @@
+import { SelectCountryBar } from "../widgets/ui/SelectCity/ui/SelectCityBar";
 import { StatusBar } from "../widgets/ui/StatusBar/StatusBar";
 import s from './app.module.scss'
 
@@ -6,6 +7,7 @@ export const App = () => {
     <div className={s.mainPage}>
       <div className={s.mainPageWrapper}>
         <StatusBar />
+        <SelectCountryBar />
       </div>
     </div>
   )

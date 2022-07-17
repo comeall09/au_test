@@ -69,89 +69,97 @@
 	}
 }
 
-.statusModal {
+.statusModalWrap {
 	position: fixed;
 	top: -200%;
-	left: 50%;
-	width: 500px;
-	transform: translateX(-50%);
-	transition: all 1s cubic-bezier(.5,-.75,.7,2);
-	box-shadow: rgba(0, 0, 0, 0.5) 0 0 10px 20px;
-	background-color: #fff;
-	padding: 25px 25px 10px;
-	border-radius: 10px;
-	display: flex;
-	flex-direction: column;
-	gap: 5px;
-	
-	.statusInput {
-		resize: none;
-		height: 50px;
-		padding: 10px;
-		border: 2px solid rgba(138, 138, 255, 0.568);
-		outline: none;
-	}
-	.saveStatusBtn {
-		position: sticky;
-	}
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(102, 102, 102, 0.37);
+	transition: all 1s cubic-bezier(.2,-.75,.7,2);
+	padding-top: 50px;
 
-	.modalBtns {
-		display: flex;
-		gap: 3px;
-		padding: 5px 0;
-		justify-content: space-between;
-
-		div {
-			display: flex;
-			gap: 5px;
-		}
-	}
-	.confirmBtn {
-		padding: 10px;
-		border: none;
-		background-color: rgb(0, 180, 0);
-		color: white;
-		cursor: pointer;
-		border-radius: 8px;
-		min-height: 1em;
-		transition: background-color .2s linear;
-		&:hover, &:focus {
-			background-color: green;
-			outline: none;
-		}
-	}
-	.cancelBtn {
-		padding: 5px;
-		border: none;
-		background-color: rgb(221, 0, 0);
-		color: white;
-		cursor: pointer;
-		border-radius: 8px;
-		min-height: 1em;
-		transition: background-color .2s linear;
-
-		&:hover, &:focus {
-			background-color: rgb(187, 0, 0);
-			outline: none;
-		}
-	}
-	.statusMaxLength {
-		opacity: 0;
-		background-color: rgb(255, 47, 47);
-		color: white;
-		width: fit-content;
-		padding: 5px 10px;
-		font-size: .8em;
+	.statusModal {
+		width: 500px;
+		margin: 0 auto;
+		box-shadow: rgba(0, 0, 0, 0.5) 0 0 10px 20px;
+		background-color: #fff;
+		padding: 25px 25px 10px;
 		border-radius: 10px;
-		transition: opacity .5s linear;
-		align-items: center;
-		text-align: center;
-	}
-	.maxLengthed {
-		opacity: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+		
+		.statusInput {
+			resize: none;
+			height: 50px;
+			padding: 10px;
+			border: 2px solid rgba(138, 138, 255, 0.568);
+			outline: none;
+		}
+		.saveStatusBtn {
+			position: sticky;
+		}
+	
+		.modalBtns {
+			display: flex;
+			gap: 3px;
+			padding: 5px 0;
+			justify-content: space-between;
+	
+			div {
+				display: flex;
+				gap: 5px;
+			}
+		}
+		.confirmBtn {
+			padding: 10px;
+			border: none;
+			background-color: rgb(0, 180, 0);
+			color: white;
+			cursor: pointer;
+			border-radius: 8px;
+			min-height: 1em;
+			transition: background-color .2s linear;
+			&:hover, &:focus {
+				background-color: green;
+				outline: none;
+			}
+		}
+		.cancelBtn {
+			padding: 5px;
+			border: none;
+			background-color: rgb(221, 0, 0);
+			color: white;
+			cursor: pointer;
+			border-radius: 8px;
+			min-height: 1em;
+			transition: background-color .2s linear;
+	
+			&:hover, &:focus {
+				background-color: rgb(187, 0, 0);
+				outline: none;
+			}
+		}
+		.statusMaxLength {
+			opacity: 0;
+			background-color: rgb(255, 47, 47);
+			color: white;
+			width: fit-content;
+			padding: 5px 10px;
+			font-size: .8em;
+			border-radius: 10px;
+			transition: opacity .5s linear;
+			align-items: center;
+			text-align: center;
+		}
+		.maxLengthed {
+			opacity: 1;
+		}
 	}
 }
 
+
 .activeModal {
-	top: 50px;
+	top: 0px;
 }

@@ -28,8 +28,8 @@ export const StatusModal = ({isActivated, setIsActivated, status, setStatus}: mo
     }
   }
 
-  const changeStatus = (isChange: boolean) => {
-    if(isChange){
+  const changeStatus = (isConfirmedChanging: boolean) => {
+    if(isConfirmedChanging){
       setStatus(newStatus)
     } else {
       setNewStatus(status)
@@ -37,9 +37,12 @@ export const StatusModal = ({isActivated, setIsActivated, status, setStatus}: mo
     setIsActivated(false)
   }
 
+  // Move cursor to end of textarea
+  inputEl.current?.setSelectionRange(-1, -1)
+
   return (
-    <>
-      <div className={`${s.statusModal} ${isActivated && s.activeModal}`}>
+    <div onClick={() => setIsActivated(false)} className={`${s.statusModalWrap} ${isActivated && s.activeModal}`}>
+      <div onClick={(e) => e.stopPropagation()} className={`${s.statusModal} ${isActivated && s.activeModal}`}>
         <textarea
           className={s.statusInput}
           value={newStatus}
@@ -55,6 +58,6 @@ export const StatusModal = ({isActivated, setIsActivated, status, setStatus}: mo
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }

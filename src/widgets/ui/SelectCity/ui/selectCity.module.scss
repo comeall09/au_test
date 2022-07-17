@@ -1,0 +1,28 @@
+.selectWrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .innerWrap {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+
+    .selectBtn {
+      width: 335px;
+      border: 1px solid #999;
+      padding: 0;
+      height: 30px;
+      cursor: pointer;
+      border-radius: 4px;
+      
+      &:focus, &:active {
+        outline: none;
+      }
+    }
+
+    p {
+      opacity: 0;
+    }
+  }
+}
