@@ -73,6 +73,7 @@
 	position: fixed;
 	top: -200%;
 	left: 50%;
+	width: 500px;
 	transform: translateX(-50%);
 	transition: all 1s cubic-bezier(.5,-.75,.7,2);
 	box-shadow: rgba(0, 0, 0, 0.5) 0 0 10px 20px;
@@ -84,6 +85,8 @@
 	gap: 5px;
 	
 	.statusInput {
+		resize: none;
+		height: 50px;
 		padding: 10px;
 		border: 2px solid rgba(138, 138, 255, 0.568);
 		outline: none;

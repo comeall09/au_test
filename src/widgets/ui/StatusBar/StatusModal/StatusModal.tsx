@@ -11,7 +11,7 @@ interface modalProps {
 export const StatusModal = ({isActivated, setIsActivated, status, setStatus}: modalProps) => {
 
   // focus input when modal is opened
-  const inputEl = useRef<HTMLInputElement>(null)
+  const inputEl = useRef<HTMLTextAreaElement>(null)
   useEffect(() => {
     inputEl.current?.focus()
   }, [isActivated])
@@ -38,9 +38,9 @@ export const StatusModal = ({isActivated, setIsActivated, status, setStatus}: mo
   }
 
   return (
-    // <div className={`${s.statusModalWrap} ${isActivated && s.activeModal}`}>
+    <>
       <div className={`${s.statusModal} ${isActivated && s.activeModal}`}>
-        <input
+        <textarea
           className={s.statusInput}
           value={newStatus}
           ref={inputEl}
@@ -55,6 +55,6 @@ export const StatusModal = ({isActivated, setIsActivated, status, setStatus}: mo
           </div>
         </div>
       </div>
-    // </div>
+    </>
   )
 }
