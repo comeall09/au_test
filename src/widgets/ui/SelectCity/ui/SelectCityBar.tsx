@@ -18,7 +18,6 @@ export const SelectCountryBar = () => {
           <select className={s.selectBtn}>
             {cities.map(city => <option onClick={() => selectCity(city.city)} selected={city.city === selectedCity && true}>{city.city}</option>)}
           </select>
-          <p>Ваш новый пароль должен содержать не менее 5 символов.</p>
         </div>
       </div>
     </>
