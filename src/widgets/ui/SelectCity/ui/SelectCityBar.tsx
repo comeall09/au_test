@@ -14,11 +14,11 @@ export const SelectCountryBar = () => {
     <>
       <div className={s.selectWrap}>
         <p>Ваш город</p>
-        <div className={s.innerWrap}>
+        {/* <div className={s.innerWrap}> */}
           <select className={s.selectBtn}>
             {cities.map(city => <option onClick={() => selectCity(city.city)} selected={city.city === selectedCity && true}>{city.city}</option>)}
           </select>
-        </div>
+        {/* </div> */}
       </div>
     </>
   )

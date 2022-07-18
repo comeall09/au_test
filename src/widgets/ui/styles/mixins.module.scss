@@ -1,0 +1,8 @@
+@mixin gridBlock {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(auto, 245px) 335px 1fr;
+  gap: 5px;
+  align-items: center;
+  font-size: 1.3em;
+}
