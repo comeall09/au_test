@@ -1,3 +1,4 @@
+import { AcceptionBar } from "../widgets/ui/AcceptionBar/AcceptionBar";
 import { EmailBar } from "../widgets/ui/EmailBar/ui/EmailBar";
 import { PasswordBar } from "../widgets/ui/PasswordBar/ui/PasswordBar";
 import { SelectCountryBar } from "../widgets/ui/SelectCity/ui/SelectCityBar";
@@ -12,6 +13,7 @@ export const App = () => {
         <SelectCountryBar />
         <PasswordBar />
         <EmailBar />
+        <AcceptionBar />
       </div>
     </div>
   )

@@ -52,4 +52,22 @@
     font-size: .7em;
     margin-left: 10px;
   }
+
+}
+.checkBoxWrap {
+  margin: 15px 0 40px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(auto, 245px) 1fr;
+  gap: 5px;
+  align-items: center;
+  font-size: 1.3em;
+  align-items: center;
+
+  .checkBoxBar {
+    display: flex;
+    gap: 10px;
+    font-size: 1em;
+    align-items: center;
+  }
 }
