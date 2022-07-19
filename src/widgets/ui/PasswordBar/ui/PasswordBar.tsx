@@ -1,6 +1,7 @@
 import s from "./passwordBar.module.scss";
 import { useEffect, useState } from "react";
 import { isPasswordValid } from "../model/isPasswordValid";
+import { PassRetry } from "./PassRetry";
 
 export const PasswordBar = () => {
   const [password, setPassword] = useState("");
@@ -18,25 +19,28 @@ export const PasswordBar = () => {
 
   return (
     <>
-      <div className={s.passBar}>
-        <p>Пароль</p>
-        <div className={s.inputWrap}>
-          <input
-            className={`${s.passInput}
+      <div className={s.passBarWrap}>
+        <div className={s.passBar}>
+          <p>Пароль</p>
+          <div className={s.inputWrap}>
+            <input
+              className={`${s.passInput}
 								${isIncorrect && s.invalidPass}`}
-            type="password"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            onBlur={handleBlur}
-          />
-          <p className={`${s.inputError} ${isIncorrect && s.active}`}>
-            Используйте не менее 5 символов
+              type="password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              onBlur={handleBlur}
+            />
+            <p className={`${s.inputError} ${isIncorrect && s.active}`}>
+              Используйте не менее 5 символов
+            </p>
+          </div>
+          <p className={s.passMsg}>
+            Ваш новый пароль должен содержать не менее 5 символов.
           </p>
         </div>
-        <p className={s.passMsg}>
-          Ваш новый пароль должен содержать не менее 5 символов.
-        </p>
+        <PassRetry mainPassword={password}/>
       </div>
     </>
   );
