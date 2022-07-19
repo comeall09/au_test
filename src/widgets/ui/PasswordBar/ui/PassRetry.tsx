@@ -1,6 +1,5 @@
 import s from "./passwordBar.module.scss";
 import { useEffect, useState } from "react";
-import { isSamePass } from '../model/isSamePass'
 
 type Prop = {
   mainPassword: string
@@ -11,6 +10,11 @@ export const PassRetry = ({mainPassword}: Prop) => {
   const [isValid, setIsValid] = useState(false);
   const [isVisited, setIsVisited] = useState(false);
   const isIncorrect = !isValid && isVisited;
+
+  const isSamePass = (mainPass: string, newPass: string) => {
+    if(mainPass === newPass) return true
+    return false
+  }
 
   useEffect(() => {
     setIsValid(isSamePass(mainPassword, password))
