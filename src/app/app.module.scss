@@ -20,4 +20,27 @@ div, input {
 		padding: 15px;
 		margin: 0 auto;
 	}
+	.dataControlWrap {
+		margin: 40px auto;
+		width: 50%;
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		color: #999;
+		font-size: 1em;
+		.changeBtn {
+			font-size: 1.2em;
+			outline: none;
+			border: none;
+			background-color: #71C838;
+			color: #fff;
+			padding: 10px 15px;
+			cursor: pointer;
+			transition: .1s linear;
+			
+			&:hover, &:focus {
+				background-color: #4ba80d;
+			}
+		}
+	}
 }

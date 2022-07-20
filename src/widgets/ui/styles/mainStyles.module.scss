@@ -70,4 +70,7 @@
     font-size: 1em;
     align-items: center;
   }
+  .checkboxInput:checked {
+    color: green;
+  }
 }

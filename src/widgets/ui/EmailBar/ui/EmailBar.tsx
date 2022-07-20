@@ -10,7 +10,6 @@ export const EmailBar = () => {
 
   useEffect(() => {
     setIsValid(isEmailValid(email));
-    console.log(isValid);
   }, [email]);
 
   const handleBlur = () => {
@@ -25,7 +24,7 @@ export const EmailBar = () => {
           <input
             className={`${s.inputBtn}
 							  ${isIncorrect && s.invalidData}`}
-            type="password"
+            type="email"
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
