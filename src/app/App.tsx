@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { AcceptionBar } from "../widgets/ui/AcceptionBar/AcceptionBar";
 import { EmailBar } from "../widgets/ui/EmailBar/ui/EmailBar";
 import { PasswordBar } from "../widgets/ui/PasswordBar/ui/PasswordBar";
@@ -6,11 +7,12 @@ import { StatusBar } from "../widgets/ui/StatusBar/StatusBar";
 import s from "./app.module.scss";
 
 export const App = () => {
-  let fullDate = new Date().toLocaleString("ru").split(",");
-  let [date, time] = fullDate;
-
+  
+  const [fullDate, setFullDate] = useState(new Date().toLocaleString("ru").split(","))
+  const [date, time] = fullDate;
   const handleClick = (e: any) => {
     e.target.blur();
+    setFullDate(new Date().toLocaleString("ru").split(","))
   };
 
   return (
@@ -26,7 +28,8 @@ export const App = () => {
             Изменить
           </button>
           <p className={s.btnInfo}>
-            последние изменения {date} в {time}
+            {date && time && `последние изменения ${date} в ${time}`}
+            {!date && 'сохраните изменения'}
           </p>
         </div>
       </div>
