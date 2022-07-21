@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import { StatusContext } from '../../../app/StatusContextProvider'
 import s from '../styles/mainStyles.module.scss'
 
-export const AcceptionBar = (setDataChanged: any) => {
+export const AcceptionBar = () => {
 
   const [isChecked, setIsChecked] = useState(false)
 
@@ -13,7 +13,7 @@ export const AcceptionBar = (setDataChanged: any) => {
   )
   
   useEffect(() => {
-    toggleChangedStatus(`${isChecked}`)
+    toggleChangedStatus(true)
   }, [isChecked])
   
   return (
