@@ -15,6 +15,11 @@ export const AcceptionBar = () => {
   useEffect(() => {
     toggleChangedStatus(true)
   }, [isChecked])
+
+  // empty dependencies effect not to change status in 1st render
+  useEffect(() => {
+    toggleChangedStatus(false)
+  }, [])
   
   return (
     <>

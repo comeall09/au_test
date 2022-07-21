@@ -14,6 +14,11 @@ export const EmailBar = () => {
     toggleChangedStatus(true)
   }, [email]);
 
+  // empty dependencies effect not to change status in 1st render
+  useEffect(() => {
+    toggleChangedStatus(false)
+  }, []);
+
   const handleBlur = () => {
     setIsVisited(true);
   };
