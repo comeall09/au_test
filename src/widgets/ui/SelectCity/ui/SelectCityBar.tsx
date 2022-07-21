@@ -1,25 +1,28 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { StatusContext } from "../../../../app/StatusContextProvider";
 import { sortData } from "../model/sortData";
 import s from "./selectCity.module.scss";
 
 export const SelectCityBar = () => {
   const cities = sortData();
 
-  const [selectedCity, setSelectedCity] = useState("");
-  const selectCity = (city: string) => {
-    setSelectedCity(city);
+  const selectCity = (city?: string) => {
+    toggleChangedStatus()
+    console.log(isChangedStatus);
   };
-
+  
+  const statusContext = useContext(StatusContext)
+  const [isChangedStatus, toggleChangedStatus] = [statusContext.isChangedStatus, statusContext.toggleChangedStatus]
+  console.log(isChangedStatus);
   return (
     <>
       <div className={s.selectWrap}>
         <p>Ваш город</p>
-        <select className={s.selectBtn}>
+        <select onChange={() => selectCity()} className={s.selectBtn}>
           {cities.map((city) => (
             <option
               key={city.city}
-              onClick={() => selectCity(city.city)}
-              defaultChecked={city.city === selectedCity && true}
+              onChange={() => selectCity(city.city)}
             >
               {city.city}
             </option>
