@@ -35,8 +35,7 @@ export const StatusModal = ({isActivated, setIsActivated, status, setStatus}: mo
   const changeStatus = (isConfirmedChanging: boolean) => {
     if(isConfirmedChanging){
       setStatus(newStatus)
-      toggleChangedStatus()
-      console.log(isChangedStatus);
+      toggleChangedStatus(true)
     } else {
       setNewStatus(status)
     }

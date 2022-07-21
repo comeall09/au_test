@@ -1,7 +1,8 @@
 import s from "../../styles/mainStyles.module.scss";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { isPasswordValid } from "../model/isPasswordValid";
 import { PassRetry } from "./PassRetry";
+import { StatusContext } from "../../../../app/StatusContextProvider";
 
 export const PasswordBar = () => {
   const [password, setPassword] = useState("");
@@ -11,12 +12,16 @@ export const PasswordBar = () => {
 
   useEffect(() => {
     setIsValid(isPasswordValid(password));
+    toggleChangedStatus(true)
   }, [password]);
 
   const handleBlur = () => {
     setIsVisited(true);
   };
 
+  const statusContext = useContext(StatusContext)
+  const [isChangedStatus, toggleChangedStatus] = [statusContext.isChangedStatus, statusContext.toggleChangedStatus]
+  
   return (
     <>
       <div className={s.BarWrap}>

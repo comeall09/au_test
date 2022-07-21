@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { AcceptionBar } from "../widgets/ui/AcceptionBar/AcceptionBar"
 import { EmailBar } from "../widgets/ui/EmailBar/ui/EmailBar"
 import { PasswordBar } from "../widgets/ui/PasswordBar/ui/PasswordBar"
@@ -14,11 +14,22 @@ export const StatusContextProvider = () => {
   const [date, time] = fullDate;
   const handleClick = (e: any) => {
     e.target.blur();
-    setFullDate(new Date().toLocaleString("ru").split(","))
+    if(isChangedStatus){
+      setFullDate(new Date().toLocaleString("ru").split(","))
+      toggleChangedStatus(false)
+    } else return false
   };
 
   const [isChangedStatus, setIsChangedStatus] = useState(false)
-  const toggleChangedStatus = () => {setIsChangedStatus(true)}
+  const toggleChangedStatus = (value: boolean | string) => {
+    console.log(value);
+    
+    if(typeof value === 'boolean') {
+      setIsChangedStatus(value)
+    } else {
+      toggleChangedStatus(Boolean(value))
+    }
+  }
 
   return (
     <StatusContext.Provider value={{isChangedStatus, toggleChangedStatus}}>
@@ -32,8 +43,8 @@ export const StatusContextProvider = () => {
               Изменить
             </button>
             <p className={s.btnInfo}>
-              {date && time && `последние изменения ${date} в ${time}`}
-              {!date && 'сохраните изменения'}
+              {isChangedStatus && `последние изменения ${date} в ${time}`}
+              {!isChangedStatus && 'сохраните изменения'}
             </p>
           </div>
     </StatusContext.Provider>

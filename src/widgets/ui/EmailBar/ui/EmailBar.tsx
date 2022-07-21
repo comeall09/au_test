@@ -1,6 +1,7 @@
 import s from "../../styles/mainStyles.module.scss";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { isEmailValid } from "../model/isEmailValid";
+import { StatusContext } from "../../../../app/StatusContextProvider";
 
 export const EmailBar = () => {
   const [email, setEmail] = useState("");
@@ -10,11 +11,15 @@ export const EmailBar = () => {
 
   useEffect(() => {
     setIsValid(isEmailValid(email));
+    toggleChangedStatus(true)
   }, [email]);
 
   const handleBlur = () => {
     setIsVisited(true);
   };
+
+  const statusContext = useContext(StatusContext)
+  const [isChangedStatus, toggleChangedStatus] = [statusContext.isChangedStatus, statusContext.toggleChangedStatus]
 
   return (
     <>
