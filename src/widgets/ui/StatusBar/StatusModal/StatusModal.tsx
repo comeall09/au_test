@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
+import { StatusContext } from "../../../../app/StatusContextProvider"
 import s from '../styles/statusBar.module.scss'
 
 interface modalProps {
@@ -9,6 +10,9 @@ interface modalProps {
 }
 
 export const StatusModal = ({isActivated, setIsActivated, status, setStatus}: modalProps) => {
+
+  const statusContext = useContext(StatusContext)
+  const [isChangedStatus, toggleChangedStatus] = [statusContext.isChangedStatus, statusContext.toggleChangedStatus]
 
   // focus input when modal is opened
   const inputEl = useRef<HTMLTextAreaElement>(null)
@@ -31,6 +35,8 @@ export const StatusModal = ({isActivated, setIsActivated, status, setStatus}: mo
   const changeStatus = (isConfirmedChanging: boolean) => {
     if(isConfirmedChanging){
       setStatus(newStatus)
+      toggleChangedStatus()
+      console.log(isChangedStatus);
     } else {
       setNewStatus(status)
     }

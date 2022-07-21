@@ -4,7 +4,7 @@ import { StatusHeader } from './StatusHeader/StatusHeader'
 import { StatusModal } from './StatusModal/StatusModal'
 
 export const StatusBar = () => {
-  
+    
   const [isActivated, setIsActivated] = useState(false)
 
   const changeStatus = () => {
@@ -19,7 +19,7 @@ export const StatusBar = () => {
       <div className={s.statusWrap}>
         <button onClick={changeStatus} className={s.btn}>Сменить статус</button>
         <div className={s.status}>{status}</div>
-        <StatusModal 
+        <StatusModal
           isActivated={isActivated}
           setIsActivated={setIsActivated}
           status={status}
